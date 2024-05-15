@@ -191,16 +191,16 @@ public:
          size_ = new_size;
      }
     
-   Vector& operator=(const Vector& rhs) {
-    if (this != &rhs) {
-        if (rhs.size_ > data_.Capacity()) {
-            Vector rhs_copy(rhs);
-            Swap(rhs_copy);
-        } else {
-            ResizeToSmallerRhs(rhs);
+    Vector& operator=(const Vector& rhs) {
+        if (this != &rhs) {
+            if (rhs.size_ > data_.Capacity()) {
+                Vector rhs_copy(rhs);
+                Swap(rhs_copy);
+            } else {
+                ResizeToSmallerRhs(rhs);
+            }
         }
-    }
-    return *this;
+        return *this;
 }
     
     Vector& operator=(Vector&& rhs) noexcept {
